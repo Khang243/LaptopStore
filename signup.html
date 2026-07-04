@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account — LaptopStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="auth-wrap">
+    <aside class="auth-aside">
+      <div class="grid-pattern"></div>
+      <div style="position:relative">
+        <div class="nav-brand" style="margin-bottom:32px; color:#fff">
+          <span class="brand-mark" style="border-color:#fff">L</span>
+          <span>LaptopStore</span>
+        </div>
+        <h1>Start building.</h1>
+        <p>Create an account to browse, save, and order premium laptop components with full order tracking.</p>
+      </div>
+    </aside>
+
+    <div class="auth-main">
+      <div class="auth-card">
+        <div class="label-eyebrow" style="margin-bottom:8px">Get started</div>
+        <h2>Create your account</h2>
+        <p class="sub">It takes less than a minute.</p>
+
+        <form id="signup-form">
+          <div class="form-group">
+            <label class="form-label" for="name">Full name</label>
+            <input type="text" id="name" class="form-input" placeholder="Jane Doe" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="you@example.com" required
+              autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" class="form-input" placeholder="At least 6 characters" required
+              minlength="6" autocomplete="new-password">
+          </div>
+          <div id="signup-error" class="form-error" style="display:none"></div>
+          <button type="submit" class="btn btn-primary btn-block" id="signup-btn">Create account</button>
+        </form>
+
+        <div class="auth-foot">
+          Already have an account? <a href="login.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

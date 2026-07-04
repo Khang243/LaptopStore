@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — LaptopStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a href="#dash-main" class="skip-link">Skip to content</a>
+  <header class="site-header" id="site-header"></header>
+
+  <div class="dash-layout">
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="sb-brand">Operations</div>
+      <a class="dash-nav-item active" data-tab="inventory">
+        <span>Inventory</span>
+      </a>
+      <a class="dash-nav-item" data-tab="orders">
+        <span>Orders</span>
+      </a>
+      <a class="dash-nav-item" data-tab="users">
+        <span>Users</span>
+      </a>
+      <a class="dash-nav-item admin-only" data-tab="messages">
+        <span>Messages</span>
+      </a>
+    </aside>
+
+    <!-- Main workspace -->
+    <main class="dash-main" id="dash-main">
+      <div class="dash-head">
+        <div>
+          <div class="label-eyebrow" id="dash-role-label">Loading…</div>
+          <h1>Operations Dashboard</h1>
+        </div>
+        <button class="btn btn-primary btn-sm" id="add-product-btn">+ Add Product</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="dash-stats" id="dash-stats">
+        <div class="stat-card">
+          <div class="stat-label">Products</div>
+          <div class="stat-value" id="stat-products">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Orders</div>
+          <div class="stat-value" id="stat-orders">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Users</div>
+          <div class="stat-value" id="stat-users">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Messages</div>
+          <div class="stat-value" id="stat-messages">—</div>
+        </div>
+      </div>
+
+      <!-- Inventory tab -->
+      <div id="tab-inventory" class="dash-panel">
+        <div style="border:1px solid var(--border-light); overflow-x:auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-body">
+              <tr>
+                <td colspan="5" style="text-align:center; padding:32px; color:var(--text-muted)">Loading inventory…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Orders tab -->
+      <div id="tab-orders" class="dash-panel" style="display:none">
+        <div style="border:1px solid var(--border-light); overflow-x:auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>User</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="orders-body">
+              <tr>
+                <td colspan="6" style="text-align:center; padding:32px; color:var(--text-muted)">No orders yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Users tab (admin only) -->
+      <div id="tab-users" class="dash-panel" style="display:none">
+        <div style="border:1px solid var(--border-light); overflow-x:auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-body">
+              <tr>
+                <td colspan="4" style="text-align:center; padding:32px; color:var(--text-muted)">Loading users…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Messages tab (admin only) -->
+      <div id="tab-messages" class="dash-panel" style="display:none">
+        <div id="messages-list" style="display:flex; flex-direction:column; gap:12px">
+          <div style="text-align:center; padding:32px; color:var(--text-muted)">No messages.</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Product add/edit modal -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modal-title">Add Product</h3>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="product-form">
+          <input type="hidden" id="prod-id">
+          <div class="form-group">
+            <label class="form-label">Product name</label>
+            <input type="text" id="prod-name" class="form-input" required
+              placeholder="e.g. Corsair Vengeance 32GB DDR5">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select id="prod-category" class="form-select" required></select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Price (USD)</label>
+              <input type="number" id="prod-price" class="form-input" step="0.01" min="0" required placeholder="129.99">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Stock quantity</label>
+            <input type="number" id="prod-stock" class="form-input" min="0" value="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea id="prod-desc" class="form-textarea" placeholder="Detailed product description…"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Specifications (one per line, format: Key|Value)</label>
+            <textarea id="prod-specs" class="form-textarea"
+              placeholder="Capacity|32GB&#10;Speed|5600MHz&#10;Type|DDR5"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Product images</label>
+            <div class="upload-zone" id="upload-zone">
+              <div class="uz-icon">⬆</div>
+              <div class="uz-text">Drag & drop images here or click to browse</div>
+            </div>
+            <div class="upload-progress" id="upload-progress" style="display:none">
+              <div class="bar" id="upload-bar"></div>
+            </div>
+            <div class="image-preview-list" id="image-preview-list"></div>
+          </div>
+          <div style="display:flex; gap:12px; margin-top:24px">
+            <button type="submit" class="btn btn-primary btn-block" id="save-product-btn">Save Product</button>
+            <button type="button" class="btn btn-outline" id="cancel-product-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

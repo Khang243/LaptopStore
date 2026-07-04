@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog — LaptopStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <div class="container cat-header">
+      <div class="label-eyebrow" id="cat-eyebrow">Catalog</div>
+      <h1 id="cat-title">All products</h1>
+      <p class="text-muted" id="cat-desc">Browse our complete inventory of laptop components.</p>
+    </div>
+
+    <div class="container">
+      <div class="cat-toolbar">
+        <div class="cat-filters" id="cat-filters">
+          <!-- Filled by JS -->
+        </div>
+        <select class="sort-select" id="sort-select">
+          <option value="newest">Newest first</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+
+      <div class="product-grid" id="category-grid" style="margin: 24px 0 64px">
+        <div class="skeleton-card" style="grid-column:1/-1">Loading products…</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaptopStore — Premium Laptop Components</title>
+  <meta name="description" content="Premium laptop components and accessories. RAM, SSD, monitors, chargers and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <!-- Hero: Split-Field layout -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-visual" id="hero-visual">
+          <img id="hero-img-0" class="active"
+            src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80" alt="Laptop">
+          <img id="hero-img-1" src="https://images.unsplash.com/photo-1592840251078-9130ff19d44c?w=800&q=80" alt="RAM">
+          <img id="hero-img-2" src="https://images.unsplash.com/photo-1591488320449-01170164f014?w=800&q=80" alt="SSD">
+          <img id="hero-img-3" src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&q=80"
+            alt="Monitor">
+        </div>
+        <div class="hero-content">
+          <div class="label-eyebrow">Technical Humanism</div>
+          <h1>Components engineered for performance.</h1>
+          <p class="text-muted" style="max-width:340px">Precision-grade laptop parts. Every spec documented, every
+            product verified.</p>
+          <div class="hero-cat-list" id="hero-cat-list">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick-Find bar -->
+    <section class="quick-find">
+      <div class="quick-find-inner">
+        <span class="quick-find-label">Quick Find</span>
+        <div id="quick-find-chips" style="display:flex; gap:8px"></div>
+      </div>
+    </section>
+
+    <!-- Featured products -->
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <div class="label-eyebrow">Featured</div>
+          <h2>Top-rated components</h2>
+          <p class="sub">Hand-picked hardware, reviewed and tested.</p>
+        </div>
+        <a href="category.html">View all →</a>
+      </div>
+      <div class="product-grid" id="featured-grid">
+        <div style="grid-column:1/-1" class="skeleton-card">Loading…</div>
+      </div>
+    </section>
+
+    <!-- Category showcase -->
+    <section class="section"
+      style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="label-eyebrow">Catalog</div>
+            <h2>Browse by category</h2>
+            <p class="sub">Find exactly the part you need.</p>
+          </div>
+        </div>
+        <div class="blueprint-grid" id="category-grid" style="grid-template-columns: repeat(5, 1fr)">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

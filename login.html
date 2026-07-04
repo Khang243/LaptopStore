@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — LaptopStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="auth-wrap">
+    <aside class="auth-aside">
+      <div class="grid-pattern"></div>
+      <div style="position:relative">
+        <div class="nav-brand" style="margin-bottom:32px; color:#fff">
+          <span class="brand-mark" style="border-color:#fff">L</span>
+          <span>LaptopStore</span>
+        </div>
+        <h1>Precision access.</h1>
+        <p>Sign in to manage your cart, orders, and profile. Staff and admins are redirected to the operations dashboard
+          automatically.</p>
+      </div>
+    </aside>
+
+    <div class="auth-main">
+      <div class="auth-card">
+        <div class="label-eyebrow" style="margin-bottom:8px">Welcome back</div>
+        <h2>Sign in to your account</h2>
+        <p class="sub">Enter your credentials below.</p>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="you@example.com" required
+              autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" class="form-input" placeholder="••••••••" required
+              autocomplete="current-password">
+          </div>
+          <div id="login-error" class="form-error" style="display:none"></div>
+          <button type="submit" class="btn btn-primary btn-block" id="login-btn">Sign in</button>
+        </form>
+
+        <div class="auth-foot">
+          Don't have an account? <a href="signup.html">Create one</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
